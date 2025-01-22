@@ -11,7 +11,13 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  plugins: [analog({
+    ssr: false,
+    static: true,
+    prerender: {
+      routes: [],
+    },
+  })],
   test: {
     globals: true,
     environment: 'jsdom',
